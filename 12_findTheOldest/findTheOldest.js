@@ -7,16 +7,15 @@ function getOldest(oldestPerson, currentPerson) {
   let oldestPersonAge = 0;
   let currentPersonAge = 0;
 
-  if (oldestPerson.yearOfDeath === undefined) {
-    oldestPersonAge = currentYear.getFullYear() - oldestPerson.yearOfBirth;
-  } else {
-    oldestPersonAge = oldestPerson.yearOfDeath - oldestPerson.yearOfBirth;
-  }
-  if (currentPerson.yearOfDeath === undefined) {
-    currentPersonAge = currentYear.getFullYear() - currentPerson.yearOfBirth;
-  } else {
-    currentPersonAge = currentPerson.yearOfDeath - currentPerson.yearOfBirth;
-  }
+  oldestPersonAge =
+    oldestPerson.yearOfDeath === undefined
+      ? currentYear.getFullYear() - oldestPerson.yearOfBirth
+      : oldestPerson.yearOfDeath - oldestPerson.yearOfBirth;
+
+  currentPersonAge =
+    currentPerson.yearOfDeath === undefined
+      ? currentYear.getFullYear() - currentPerson.yearOfBirth
+      : currentPerson.yearOfDeath - currentPerson.yearOfBirth;
 
   if (oldestPersonAge < currentPersonAge) {
     return (oldestPerson = currentPerson);
